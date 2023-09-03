@@ -4,5 +4,5 @@ This is based on [Theprimeagen's neovim setup](https://github.com/ThePrimeagen/i
 
 
 ## GPG setup
-* Move both gpg_setup/*.conf files to .gnupg/ folder 
+* Move both `gpg_setup/*.conf` files to `.gnupg/` folder 
 * run `./gpg_setup/reload-gpg-agent.sh` 
