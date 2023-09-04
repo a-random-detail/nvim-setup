@@ -12,10 +12,10 @@ return require('packer').startup(function(use)
   
 
   use { 
-  "bluz71/vim-nightfly-colors", 
-  as = "nightfly",
+  "rebelot/kanagawa.nvim", 
+  as = "kanagawa",
   config = function() 
-  	vim.cmd("colorscheme nightfly")
+  	vim.cmd("colorscheme kanagawa-dragon")
   end
   }
   
