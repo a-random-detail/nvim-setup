@@ -43,6 +43,7 @@ return require('packer').startup(function(use)
   use('github/copilot.vim')
   use('tpope/vim-commentary')
   use('bling/vim-bufferline')
+  use('vim-airline/vim-airline')
 
 
 end)
