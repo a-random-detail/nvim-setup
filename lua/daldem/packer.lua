@@ -14,7 +14,7 @@ return require('packer').startup(function(use)
   use { 
   "rebelot/kanagawa.nvim", 
   as = "kanagawa",
-  config = function() 
+  config = function()
   	vim.cmd("colorscheme kanagawa-dragon")
   end
   }
@@ -42,7 +42,7 @@ return require('packer').startup(function(use)
   use('tpope/vim-fugitive')
   use('github/copilot.vim')
   use('tpope/vim-commentary')
-  use('vim-airline/vim-airline')
-
+  use { 'feline-nvim/feline.nvim', branch = '0.5-compat' }
 
 end)
+
