@@ -42,7 +42,6 @@ return require('packer').startup(function(use)
   use('tpope/vim-fugitive')
   use('github/copilot.vim')
   use('tpope/vim-commentary')
-  use('bling/vim-bufferline')
   use('vim-airline/vim-airline')
 
 
