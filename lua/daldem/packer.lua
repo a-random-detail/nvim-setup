@@ -41,6 +41,8 @@ return require('packer').startup(function(use)
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
   use('github/copilot.vim')
+  use('tpope/vim-commentary')
+  use('bling/vim-bufferline')
 
 
 end)
