@@ -43,6 +43,9 @@ return require('packer').startup(function(use)
   use('github/copilot.vim')
   use('tpope/vim-commentary')
   use { 'feline-nvim/feline.nvim', branch = '0.5-compat' }
+  use 'nvim-tree/nvim-web-devicons' -- OPTIONAL: for file icons
+  use 'lewis6991/gitsigns.nvim' -- OPTIONAL: for git status
+  use 'romgrk/barbar.nvim'
 
 end)
 
