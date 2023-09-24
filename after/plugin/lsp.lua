@@ -6,6 +6,7 @@ lsp.ensure_installed({
   'tsserver',
   'rust_analyzer',
   'omnisharp',
+  'csharp_ls',
   'lua_ls',
   'angularls',
   'dockerls',
@@ -76,20 +77,83 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
-require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
-require('lspconfig').tsserver.setup{}
-require('lspconfig').rust_analyzer.setup{}
-require('lspconfig').angularls.setup{}
-require('lspconfig').dockerls.setup{}
-require('lspconfig').docker_compose_language_service.setup{}
-require('lspconfig').jdtls.setup{}
-require('lspconfig').terraformls.setup{}
-require('lspconfig').yamlls.setup{}
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  -- Replace the language servers listed here
+  -- with the ones you want to install
+  ensure_installed = {'lua_ls', 'tsserver', 'rust_analyzer', 'angularls', 'dockerls', 'docker_compose_language_service', 'jdtls', 'terraformls', 'yamlls', 'omnisharp', 'csharp_ls'},
+  handlers = {
+    lsp.default_setup
+  }
+})
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-require'lspconfig'.omnisharp.setup {
-    capabilities = capabilities
-}
+local lspconfig = require('lspconfig')
+
+lspconfig.tsserver.setup({
+  on_attach = function(client, bufnr)
+    client.resolved_capabilities.document_formatting = false
+  end
+})
+
+lspconfig.lua_ls.setup({
+  on_attach = function(client, bufnr)
+    client.resolved_capabilities.document_formatting = false
+  end
+})
+
+lspconfig.rust_analyzer.setup({
+  on_attach = function(client, bufnr)
+    client.resolved_capabilities.document_formatting = false
+  end
+})
+
+lspconfig.omnisharp.setup({
+  on_attach = function(client, bufnr)
+    client.resolved_capabilities.document_formatting = false
+  end
+})
+
+lspconfig.csharp_ls.setup({
+  on_attach = function(client, bufnr)
+    client.resolved_capabilities.document_formatting = false
+  end
+})
+
+lspconfig.angularls.setup({
+  on_attach = function(client, bufnr)
+    client.resolved_capabilities.document_formatting = false
+  end
+})
+
+lspconfig.dockerls.setup({
+  on_attach = function(client, bufnr)
+    client.resolved_capabilities.document_formatting = false
+  end
+})
+
+lspconfig.docker_compose_language_service.setup({
+  on_attach = function(client, bufnr)
+    client.resolved_capabilities.document_formatting = false
+  end
+})
+
+lspconfig.jdtls.setup({
+  on_attach = function(client, bufnr)
+    client.resolved_capabilities.document_formatting = false
+  end
+})
+
+lspconfig.terraformls.setup({
+  on_attach = function(client, bufnr)
+    client.resolved_capabilities.document_formatting = false
+  end
+})
+
+lspconfig.yamlls.setup({
+  on_attach = function(client, bufnr)
+    client.resolved_capabilities.document_formatting = false
+  end
+})
 
 lsp.setup()
 
